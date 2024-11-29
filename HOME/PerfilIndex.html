@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverto</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="Perfil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Primeira Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <!-- Ícones à direita com imagens -->
+      <div class="navbar-nav ms-auto">
+        <!-- Imagem de lupa -->
+        <span class="icon-button" id="search-icon">
+          <img src="FOR/barra de pesquisa.png" width = "27px "alt="Pesquisar">
+        </span>
+        <!-- Imagem de carrinho -->
+        <a href="CarrinhoIndex.html" class="icon-button">
+          <img src="FOR/carrinho.png"  width = "27px " alt="Carrinho">
+        </a>
+        <!-- Imagem de perfil -->
+        <a href="PerfilIndex.html" class="icon-button">
+          <img src= "FOR/perfil.png"  width = "27px " alt="Perfil">
+        </a>
+      </div>
+
+      <!-- Nome da Loja no Centro -->
+      <h3 class="h3">RƎVERTO</h3>
+    </div>
+  </nav>
+
+  <!-- Barra de pesquisa (escondida por padrão) -->
+  <div id="search-bar-container">
+    <input type="text" class="form-control search-bar" id="search-bar" placeholder="Pesquisar...">
+  </div>
+
+  <!-- Segundo Navbar com Coleções e opções -->
+  <nav class="navbar navbar-expand-lg navbar-second">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="produtos.html">Coleções</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Masculino.html">Masculino</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Fem.html">Feminino</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Sobrenos.html">Sobre Nós</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Script do Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.getElementById('search-icon').addEventListener('click', function() {
+      const searchBarContainer = document.getElementById('search-bar-container');
+      
+      // Toggle da visibilidade da barra de pesquisa
+      if (searchBarContainer.style.display === 'block') {
+        searchBarContainer.style.display = 'none';
+      } else {
+        searchBarContainer.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+
+
+    <!-- Main Content -->
+        <div class="container">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-image-container">
+                        <img alt="Foto de perfil do usuário" class="profile-image" src="https://storage.googleapis.com/a1aa/image/pi54fcBmuMSpQidO3YFUEWKp8fv6S8jZECnVfhpVG3sXv3lnA.jpg"/>
+                        <button class="edit-profile-btn" onclick="openEditModal()">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                    <div class="profile-info">
+                        <h2>Usuário</h2>
+                        <p>Usuário.123@example.com</p>
+                        <a href="#">Editar perfil</a>
+                    </div>
+                </div>
+                <div class="personal-info">
+                    <h3>Informações Pessoais</h3>
+                    <p>Endereço: Av Pires do Rio, São Paulo, Brasil</p>
+                    <p>Número: (55) 11 99881-3354</p>
+                </div>
+                <div class="purchase-history">
+                    <h3>Histórico de Compras</h3>
+                    <ul id="purchaseHistory">
+                        <li>
+                            <div id="loadingMessage">
+                                <p>Carregando...</p>
+                                <p class="sub-text">Por favor, aguarde.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <h2>Editar Perfil</h2>
+                <form id="editProfileForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" value="Usuário" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" value="Usuário.123@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Endereço</label>
+                        <input type="text" id="address" value="Av Pires do Rio, São Paulo, Brasil" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Número</label>
+                        <input type="tel" id="phone" value="(55) 11 99881-3354" required>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="cancel-btn" onclick="closeEditModal()">Cancelar</button>
+                        <button type="submit" class="save-btn">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>      
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <!-- Coluna 1 -->
+            <div class="col-md-3">
+              <h6>COMPANHIA</h6>
+              <ul class="list-unstyled">
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Carreiras</a></li>
+                <li><a href="#">Sustentabilidade</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+            <!-- Coluna 2 -->
+            <div class="col-md-3">
+              <h6>AJUDA</h6>
+              <ul class="list-unstyled">
+                <li><a href="#">Atendimento ao Cliente</a></li>
+                <li><a href="#">Trocas e Devoluções</a></li>
+                <li><a href="#">Pedidos</a></li>
+                <li><a href="#">Pagamento</a></li>
+              </ul>
+            </div>
+            <!-- Coluna 3 -->
+            <div class="col-md-3">
+              <h6>REDES SOCIAIS</h6>
+              <ul class="list-inline">
+                <li class="list-inline-item"><a href="#"><i class="bi bi-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="bi bi-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="bi bi-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="bi bi-youtube"></i></a></li>
+              </ul>
+            </div>
+            <!-- Coluna 4 -->
+            <div class="col-md-3">
+              <h6>MANTENHA-SE CONECTADO</h6>
+              <form>
+                <div class="mb-2">
+                  <input type="email" class="form-control" placeholder="Insira seu email">
+                </div>
+                <button type="submit" class="btn btn-warning w-100">Inscrever-se</button>
+              </form>
+            </div>
+          </div>
+          <hr class="footer-divider">
+          <div class="text-center pt-2">
+            <p>&copy; 2023 R3VERTO. Todos os direitos reservados.</p>
+            <p><a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a></p>
+          </div>
+        </div>
+      </footer>
+      <script>
+        function openEditModal() {
+            document.getElementById('editModal').classList.add('show');
+        }
+
+        function closeEditModal() {
+            document.getElementById('editModal').classList.remove('show');
+        }
+
+        // Simulação de carregamento do histórico de compras
+        setTimeout(() => {
+            const purchaseHistory = document.getElementById('purchaseHistory');
+            purchaseHistory.innerHTML = `
+                <li>
+                    <div>
+                        <p>Compra 1: Produto A - R$ 100,00</p>
+                        <p class="sub-text">Data: 01/01/2023</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <p>Compra 2: Produto B - R$ 150,00</p>
+                        <p class="sub-text">Data: 15/01/2023</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <p>Compra 3: Produto C - R$ 200,00</p>
+                        <p class="sub-text">Data: 20/01/2023</p>
+                    </div>
+                </li>
+            `;
+        }, 2000); // 2 segundos de atraso
+
+        // Adicionando evento de submit ao formulário
+        document.getElementById('editProfileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Capturando os valores dos campos
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+
+            // Atualizando os dados na página
+            document.querySelector('.profile-info h2').textContent = name;
+            document.querySelector('.profile-info p').textContent = email;
+            document.querySelector('.personal-info p:first-of-type').textContent = `Endereço: ${address}`;
+            document.querySelector('.personal-info p:last-of-type').textContent = `Número: ${phone}`;
+
+            // Fechando o modal
+            closeEditModal();
+
+            // Opcional: Mostrar uma mensagem de sucesso
+            alert('Perfil atualizado com sucesso!');
+        });
+    </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

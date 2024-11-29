@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverto</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Primeira Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <!-- Ícones à direita com imagens -->
+      <div class="navbar-nav ms-auto">
+        <!-- Imagem de lupa -->
+        <span class="icon-button" id="search-icon">
+          <img src="FOR/barra de pesquisa.png" width = "27px "alt="Pesquisar">
+        </span>
+        <!-- Imagem de carrinho -->
+        <a href="CarrinhoIndex.html" class="icon-button">
+          <img src="FOR/carrinho.png"  width = "27px " alt="Carrinho">
+        </a>
+        <!-- Imagem de perfil -->
+        <a href="PerfilIndex.html" class="icon-button">
+          <img src= "FOR/perfil.png"  width = "27px " alt="Perfil">
+        </a>
+      </div>
+
+      <!-- Nome da Loja no Centro -->
+      <h3 class="h3">RƎVERTO</h3>
+    </div>
+  </nav>
+
+  <!-- Barra de pesquisa (escondida por padrão) -->
+  <div id="search-bar-container">
+    <input type="text" class="form-control search-bar" id="search-bar" placeholder="Pesquisar...">
+  </div>
+
+  <!-- Segundo Navbar com Coleções e opções -->
+  <nav class="navbar navbar-expand-lg navbar-second">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="produtos.html">Coleções</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Masculino.html">Masculino</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Fem.html">Feminino</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Sobrenos.html">Sobre Nós</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Script do Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.getElementById('search-icon').addEventListener('click', function() {
+      const searchBarContainer = document.getElementById('search-bar-container');
+      
+      // Toggle da visibilidade da barra de pesquisa
+      if (searchBarContainer.style.display === 'block') {
+        searchBarContainer.style.display = 'none';
+      } else {
+        searchBarContainer.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+<style>
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        background-color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .cart-container {
+        max-width: 900px;
+        margin: 2rem auto;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        padding: 2rem;
+        flex-grow: 1;
+    }
+    .cart-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 1rem 0;
+    }
+    .cart-item img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .item-details {
+        flex-grow: 1;
+        margin-left: 1rem;
+    }
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        border: 1px solid #e5e5e5;
+        border-radius: 4px;
+        margin-left: 1rem; /* Adiciona margem à esquerda para espaço */
+    }
+    .quantity-control button {
+        width: 40px;
+        height: 40px;
+        background-color: #f5f5f5;
+        border: none;
+        cursor: pointer;
+    }
+    .quantity-control input {
+        width: 50px;
+        text-align: center;
+        border: none;
+        padding: 0;
+    }
+    .remove-item {
+        color: #FF6B00;
+        cursor: pointer;
+        font-size: 18px;
+        margin-left: 1rem;
+    }
+    .cart-summary {
+        text-align: right;
+    }
+</style>
+<script>
+    function updateSubtotal() {
+        const items = document.querySelectorAll('.cart-item');
+        let subtotal = 0;
+        items.forEach(item => {
+            const price = parseFloat(item.dataset.price);
+            const quantity = parseInt(item.querySelector('input[type="number"]').value);
+            subtotal += price * quantity;
+        });
+        document.getElementById('subtotal').textContent = `R$ ${subtotal.toFixed(2)}`;
+        const shipping = 20.00; // Valor fixo para o frete
+        document.getElementById('total').textContent = `R$ ${(subtotal + shipping).toFixed(2)}`;
+    }
+
+    function adjustQuantity(item, change) {
+        const quantityInput = item.querySelector('input[type="number"]');
+        let quantity = parseInt(quantityInput.value);
+        quantity = Math.max(1, quantity + change);
+        quantityInput.value = quantity;
+        updateSubtotal();
+    }
+
+    function removeItem(item) {
+        item.remove();
+        updateSubtotal();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const quantityControls = document.querySelectorAll('.quantity-control');
+        quantityControls.forEach(control => {
+            const item = control.closest('.cart-item');
+            control.querySelector('button:first-child').addEventListener('click', () => adjustQuantity(item, -1));
+            control.querySelector('button:last-child').addEventListener('click', () => adjustQuantity(item, 1));
+        });
+
+        const removeButtons = document.querySelectorAll('.remove-item');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', () => removeItem(button.closest('.cart-item')));
+        });
+
+        updateSubtotal(); // Inicializa o subtotal
+    });
+</script>
+</head>
+<body>
+
+    <!-- Main Content -->
+    <main>
+        <script>
+            function updateSubtotal() {
+                const items = document.querySelectorAll('.cart-item');
+                let subtotal = 0;
+                items.forEach(item => {
+                    const price = parseFloat(item.dataset.price);
+                    const quantity = parseInt(item.querySelector('input[type="number"]').value);
+                    subtotal += price * quantity;
+                });
+                document.getElementById('subtotal').textContent = `R$ ${subtotal.toFixed(2)}`;
+                const shipping = 20.00; // Valor fixo para o frete
+                document.getElementById('total').textContent = `R$ ${(subtotal + shipping).toFixed(2)}`;
+            }
+    
+            function adjustQuantity(item, change) {
+                const quantityInput = item.querySelector('input[type="number"]');
+                let quantity = parseInt(quantityInput.value);
+                quantity = Math.max(1, quantity + change);
+                quantityInput.value = quantity;
+                updateSubtotal();
+            }
+    
+            function removeItem(item) {
+                item.remove();
+                updateSubtotal();
+            }
+    
+            document.addEventListener('DOMContentLoaded', () => {
+                const quantityControls = document.querySelectorAll('.quantity-control');
+                quantityControls.forEach(control => {
+                    const item = control.closest('.cart-item');
+                    control.querySelector('button:first-child').addEventListener('click', () => adjustQuantity(item, -1));
+                    control.querySelector('button:last-child').addEventListener('click', () => adjustQuantity(item, 1));
+                });
+    
+                const removeButtons = document.querySelectorAll('.remove-item');
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', () => removeItem(button.closest('.cart-item')));
+                });
+    
+                updateSubtotal(); // Inicializa o subtotal
+            });
+        </script>
+    </head>
+        <body>
+            <div class="cart-container mx-auto px-4 py-8 flex-1">
+                <h1 class="text-2xl font-bold mb-6 text-center">Seu Carrinho</h1>
+                
+                <div class="cart-item" data-price="99.99">
+                    <img src="FOR/camisa 1.jpeg" alt="Camiseta Preta Básica" class="w-32 h-32 object-cover rounded-md"/>
+                    <div class="item-details">
+                        <h3 class="font-bold">Camiseta Preta Básica</h3>
+                        <p class="text-gray-600">Tamanho: 
+                            <select class="size-select" aria-label="Escolha o tamanho">
+                                <option value="P">P</option>
+                                <option value="M" selected>M</option>
+                                <option value="G">G</option>
+                                <option value="GG">GG</option>
+                            </select>
+                        </p>
+                        <p class="text-gray-600">R$ 99,99</p>
+                    </div>
+                    <div class="quantity-control">
+                        <button>-</button>
+                        <input type="number" value="1" min="1" aria-label="Quantidade"/>
+                        <button>+</button>
+                    </div>
+                    <div class="ml-4">
+                        <span class="font-bold">R$ 99,99</span>
+                    </div>
+                    <span class="remove-item" aria-label="Remover item">&times;</span>
+                </div>
+        
+                <div class="cart-item" data-price="89.99"> <!-- Alterado para R$ 89,99 -->
+                    <img src="FOR/camisa 3.jpeg" alt="Camiseta Branca Básica" class="w-32 h-32 object-cover rounded-md"/>
+                    <div class="item-details">
+                        <h3 class="font-bold">Camiseta Branca Básica</h3>
+                        <p class="text-gray-600">Tamanho: 
+                            <select class="size-select" aria-label="Escolha o tamanho">
+                                <option value="P" selected>P</option>
+                                <option value="M">M</option>
+                                <option value="G">G</option>
+                                <option value="GG">GG</option>
+                            </select>
+                        </p>
+                        <p class="text-gray-600">R$ 89,99</p> <!-- Alterado para R$ 89,99 -->
+                    </div>
+                    <div class="quantity-control">
+                        <button>-</button>
+                        <input type="number" value="1" min="1" aria-label="Quantidade"/>
+                        <button>+</button>
+                    </div>
+                    <div class="ml-4">
+                        <span class="font-bold">R$ 89,99</span> <!-- Alterado para R$ 89,99 -->
+                    </div>
+                    <span class="remove-item" aria-label="Remover item">&times;</span>
+                </div>
+                <br/>
+        
+                <div class="cart-summary mt-6 text-right">
+                    <div class="mb-2">
+                        <span>Subtotal:</span>
+                        <span id="subtotal" class="font-bold ml-2">R$ 289,98</span> <!-- Atualizado para refletir a nova soma -->
+                    </div>
+                    <div class="mb-4">
+                        <span>Frete:</span>
+                        <span class="font-bold ml-2">R$ 20,00</span>
+                    </div>
+                    <div class=" font-bold text-xl">
+                        <span class="h5">Total:</span>
+                        <span id="total" class="ml-xl-1">R$ 309,98</span> <!-- Atualizado para refletir a nova soma -->
+                    </div>
+                </div>
+                <br/>
+        
+                <div class="flex justify-end mt-6">
+                    <button class="btn btn-primary">Finalizar Compra</button>
+                </div>
+            </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- Coluna 1 -->
+          <div class="col-md-3">
+            <h6>COMPANHIA</h6>
+            <ul class="list-unstyled">
+              <li><a href="#">Sobre Nós</a></li>
+              <li><a href="#">Carreiras</a></li>
+              <li><a href="#">Sustentabilidade</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <!-- Coluna 2 -->
+          <div class="col-md-3">
+            <h6>AJUDA</h6>
+            <ul class="list-unstyled">
+              <li><a href="#">Atendimento ao Cliente</a></li>
+              <li><a href="#">Trocas e Devoluções</a></li>
+              <li><a href="#">Pedidos</a></li>
+              <li><a href="#">Pagamento</a></li>
+            </ul>
+          </div>
+          <!-- Coluna 3 -->
+          <div class="col-md-3">
+            <h6>REDES SOCIAIS</h6>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="#"><i class="bi bi-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="bi bi-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="bi bi-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="bi bi-youtube"></i></a></li>
+            </ul>
+          </div>
+          <!-- Coluna 4 -->
+          <div class="col-md-3">
+            <h6>MANTENHA-SE CONECTADO</h6>
+            <form>
+              <div class="mb-2">
+                <input type="email" class="form-control" placeholder="Insira seu email">
+              </div>
+              <button type="submit" class="btn btn-warning w-100">Inscrever-se</button>
+            </form>
+          </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="text-center pt-2">
+          <p>&copy; 2023 R3VERTO. Todos os direitos reservados.</p>
+          <p><a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a></p>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

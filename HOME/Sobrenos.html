@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverto</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style2.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Primeira Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <!-- Ícones à direita com imagens -->
+      <div class="navbar-nav ms-auto">
+        <!-- Imagem de lupa -->
+        <span class="icon-button" id="search-icon">
+          <img src="FOR/barra de pesquisa.png" width = "27px "alt="Pesquisar">
+        </span>
+        <!-- Imagem de carrinho -->
+        <a href="CarrinhoIndex.html" class="icon-button">
+          <img src="FOR/carrinho.png"  width = "27px " alt="Carrinho">
+        </a>
+        <!-- Imagem de perfil -->
+        <a href="PerfilIndex.html" class="icon-button">
+          <img src= "FOR/perfil.png"  width = "27px " alt="Perfil">
+        </a>
+      </div>
+
+      <!-- Nome da Loja no Centro -->
+      <h3 class="h3">RƎVERTO</h3>
+    </div>
+  </nav>
+
+  <!-- Barra de pesquisa (escondida por padrão) -->
+  <div id="search-bar-container">
+    <input type="text" class="form-control search-bar" id="search-bar" placeholder="Pesquisar...">
+  </div>
+
+  <!-- Segundo Navbar com Coleções e opções -->
+  <nav class="navbar navbar-expand-lg navbar-second">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="produtos.html">Coleções</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Masculino.html">Masculino</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Fem.html">Feminino</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Sobrenos.html">Sobre Nós</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Script do Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.getElementById('search-icon').addEventListener('click', function() {
+      const searchBarContainer = document.getElementById('search-bar-container');
+      
+      // Toggle da visibilidade da barra de pesquisa
+      if (searchBarContainer.style.display === 'block') {
+        searchBarContainer.style.display = 'none';
+      } else {
+        searchBarContainer.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+<style>
+    h2, p {
+    color: black;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    }
+  </style>
+  <br/>
+
+    <!-- Main Content -->
+    <main>
+        <h2>Sobre a Empresa</h2></body>
+        <p>A Reverto não é apenas uma loja de roupas, mas um promotor de um novo estilo de vida. Fundada em agosto de 2024, a empresa busca fazer a diferença com peças ousadas fabricadas nacionalmente.</p>
+        <h2>Objetivo</h2>
+        <p>Nosso objetivo é redefinir o conceito de moda sustentável, criando peças elegantes, estilosas e exclusivas que aliam responsabilidade ambiental com sofisticação. Acreditamos que sustentabilidade não precisa comprometer o estilo, por isso, buscamos inovar com designs diferenciados e de alta qualidade, oferecendo aos nossos clientes uma experiência de moda que é tão consciente quanto atraente. Queremos ser reconhecidos como uma marca que transforma tendências, levando em consideração o impacto positivo que podemos gerar no meio ambiente e na sociedade.​</p>
+        <h2>Causas</h2>
+        <p>A Reverto é comprometida com a sustentabilidade ambiental, utilizando materiais ecológicos como tecidos reciclados e promovendo a moda circular por meio de upcycling e reciclagem. A marca também valoriza a justiça social, garantindo condições de trabalho éticas, e incentiva o consumo consciente, oferecendo roupas duráveis e atemporais.​</p>
+        <h2>Parcerias</h2>
+        <p>Em parceria com a <a href="https://valorareciclaveis.com.br/">Valora Recicláveis</a>, a Reverto coleta, higieniza e separa materiais recicláveis para a produção de suas peças. A empresa também apoia causas socioambientais, destinando 1% das vendas para ONGs e projetos, com a meta de contribuir com mais de 300 mil reais por ano.</p>
+        <br/>
+    <!-- Banner -->
+    <div class="text-center">
+        <img src="FOR/banner 2.jpeg" width="1000" height="300">
+    </div>
+    </main>
+    <br/>
+    <br/>   
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- Coluna 1 -->
+          <div class="col-md-3">
+            <h6>COMPANHIA</h6>
+            <ul class="list-unstyled">
+              <li><a href="#">Sobre Nós</a></li>
+              <li><a href="#">Carreiras</a></li>
+              <li><a href="#">Sustentabilidade</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <!-- Coluna 2 -->
+          <div class="col-md-3">
+            <h6>AJUDA</h6>
+            <ul class="list-unstyled">
+              <li><a href="#">Atendimento ao Cliente</a></li>
+              <li><a href="#">Trocas e Devoluções</a></li>
+              <li><a href="#">Pedidos</a></li>
+              <li><a href="#">Pagamento</a></li>
+            </ul>
+          </div>
+          <!-- Coluna 3 -->
+          <div class="col-md-3">
+            <h6>REDES SOCIAIS</h6>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="#"><i class="bi bi-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="bi bi-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="bi bi-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="bi bi-youtube"></i></a></li>
+            </ul>
+          </div>
+          <!-- Coluna 4 -->
+          <div class="col-md-3">
+            <h6>MANTENHA-SE CONECTADO</h6>
+            <form>
+              <div class="mb-2">
+                <input type="email" class="form-control" placeholder="Insira seu email">
+              </div>
+              <button type="submit" class="btn btn-warning w-100">Inscrever-se</button>
+            </form>
+          </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="text-center pt-2">
+          <p style="color: white;">&copy; 2023 R3VERTO. Todos os direitos reservados.</p>
+          <p><a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a></p>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

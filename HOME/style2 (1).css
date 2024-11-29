@@ -1,0 +1,146 @@
+/* styles.css */
+
+ /* Reset básico */
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+a {
+  text-decoration: none;
+}
+
+  .navbar {
+    background-color: #172218; /* Cor personalizada para a navbar */
+  }
+
+  .navbar .search-bar {
+    display: none; /* Escondida inicialmente */
+    width: 250px; /* Tamanho da barra de pesquisa ajustado */
+    margin-top: 10px; /* Espaçamento entre a navbar e a barra de pesquisa */
+  }
+
+  /* Estilo para garantir o alinhamento correto do nome da loja */
+  .navbar-brand {
+    color: aliceblue;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  
+  }
+
+  /* Garantir que os ícones fiquem bem no canto direito */
+  .navbar-nav {
+    margin-left: auto;
+  }
+
+  /* Espaçamento entre os ícones */
+  .navbar-nav .icon-button {
+    margin-right: 15px; /* Espaço entre os ícones */
+  }
+
+  /* Estilo para o segundo navbar */
+  .navbar-second {
+    background-color: #172218; /* Mesma cor do primeiro navbar */
+    margin-top: 5px; /* Espaço entre as duas navbars */
+  }
+
+  .navbar-second .nav-link {
+    color: white;
+    font-weight: bold;
+   
+      }
+
+  .navbar-second .nav-link:hover {
+    color: #ddd; /* Cor do texto ao passar o mouse */
+    
+  }
+
+  /* Centralizar os links no segundo navbar */
+  .navbar-second .navbar-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centraliza os itens */
+  }
+
+.navbar .search-bar {
+  display: none; /* Escondida inicialmente */
+  width: 250px; /* Tamanho da barra de pesquisa ajustado */
+  margin-top: 10px; /* Espaçamento entre a navbar e a barra de pesquisa */
+}
+
+/* Estilo para garantir o alinhamento correto do nome da loja */
+.h3 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  margin-top: 5px;
+}
+
+/* Garantir que os ícones fiquem bem no canto direito */
+.navbar-nav {
+  margin-left: auto;
+}
+
+/* Espaçamento entre os ícones */
+.navbar-nav .icon-button {
+  margin-right: 15px; /* Espaço entre os ícones */
+}
+
+/* Posiciona a barra de pesquisa abaixo da lupa */
+#search-bar-container {
+  position: absolute;
+  top: 60px;   /* Coloca a barra de pesquisa abaixo da navbar */
+  right: 70px; /* Posiciona a barra de pesquisa abaixo da lupa */
+  z-index: 10;
+  display: none; /* Inicialmente escondida */
+}
+  /* Banner */
+ .banner {
+  text-align: center;
+  padding: 50px;
+  padding-left: 200px;
+}
+
+footer {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1;
+}
+
+/* Alinhamento das imagens lado a lado */
+.payment-images, .social-images {
+  display: flex;
+  justify-content: start;
+}
+
+.row {
+  row-gap: 50px; /* Espaçamento adicional entre as linhas */
+}
+
+/* Ícones de pagamento e redes sociais */
+.payment-icons, .social-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.payment-icons img, .social-icons img {
+  width: 45px;
+  height: 40px;
+  padding: 5px;
+}
+

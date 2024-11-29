@@ -1,0 +1,280 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Navigation Styles */
+.main-nav {
+    background-color: #172218;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* Container and Profile Card */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+    flex-grow: 1;
+}
+
+.profile-card {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.profile-image-container {
+    position: relative;
+    margin-right: 20px;
+}
+
+.profile-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.edit-profile-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #172218;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-profile-btn:hover {
+    background-color: #2c3e50;
+}
+
+.profile-info h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-info p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.profile-info a {
+    color: #172218;
+}
+
+.personal-info, .purchase-history {
+    margin-bottom: 20px;
+}
+
+.personal-info h3, .purchase-history h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.personal-info p, .purchase-history p {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.sub-text {
+    color: #999;
+    font-size: 0.8em;
+}
+
+.purchase-history ul {
+    list-style: none;
+}
+
+.purchase-history li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cancel-btn, .save-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #e0e0e0;
+    color: black;
+}
+
+.save-btn {
+    background-color: #FF6B00;
+    color: white;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #172218;
+    color: white;
+    padding: 40px 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 15px;
+}
+
+.footer-column h4 {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: white;
+    opacity: 0.7;
+}
+
+.footer-column a:hover {
+    opacity: 1;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-column form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.footer-column form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #FF6B00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    text-align: center;
+    border-top: 1px solid #333;
+    padding: 20px 15px 0;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
